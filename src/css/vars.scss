@@ -80,3 +80,52 @@ $gradia-backgroundImg: url("../img/orysca-map.png");
         background-size: cover;
     }
 }
+
+/*******************
+ * 2. BSBS
+ *******************/
+ 
+ //colors
+ $snaplands-header: #181775; //#69140E;
+ $snaplands-gridPortrait: hsl(241, 47%, 37%); //#00a44a;
+ $snaplands-infoBorder: rgb(71,46,0);
+ 
+ //imgs
+ $snaplands-headerImg: url(../img/3859499_darkgreen.jpg); //url(../img/3859499.jpg);
+ $snaplands-backgroundImg: url('../img/Paul_Cézanne_-_Forêt_\(1902-1904\).jpg');
+
+ .snaplands {
+    header, #recapToggle, button, #recapNav{
+        background: $snaplands-headerImg, $snaplands-header;
+        background-size: cover;
+    }
+    .portrait {
+        border: 3px ridge $snaplands-gridPortrait;
+    }
+ }
+
+ @media (min-width:950px){
+    .App.snaplands {
+            background-image: $snaplands-backgroundImg;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        
+    }
+    .App.gradia {
+        
+            background-image: $gradia-backgroundImg;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        
+    }
+    .snaplands #info {
+        background: $bsbs-headerImg, $bsbs-header;
+        background-size: cover;
+    }
+    .gradia #info {
+        background: $gradia-headerImg, $gradia-header;
+        background-size: cover;
+    }
+}

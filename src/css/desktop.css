@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*******************
  * 1. UNIVERSALS
  *******************/
@@ -39,6 +40,42 @@
   }
 
   .bsbs #info {
+    background: url(../img/3859499_darkblue.jpg), #181775;
+    background-size: cover;
+  }
+
+  .gradia #info {
+    background: url(../img/3859499_citrus.jpg), #ca4a00;
+    background-size: cover;
+  }
+}
+/*******************
+ * 2. BSBS
+ *******************/
+.snaplands header, .snaplands #recapToggle, .snaplands button, .snaplands #recapNav {
+  background: url(../img/3859499_darkgreen.jpg), #181775;
+  background-size: cover;
+}
+.snaplands .portrait {
+  border: 3px ridge #33328b;
+}
+
+@media (min-width: 950px) {
+  .App.snaplands {
+    background-image: url("../img/Paul_Cézanne_-_Forêt_(1902-1904).jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .App.gradia {
+    background-image: url("../img/orysca-map.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .snaplands #info {
     background: url(../img/3859499_darkblue.jpg), #181775;
     background-size: cover;
   }
