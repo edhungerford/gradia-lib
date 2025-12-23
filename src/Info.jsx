@@ -22,7 +22,7 @@ class Info extends Component{
             <details id="infoAppearances">
             <summary id="appearanceHeader">Appeared in:</summary>
                 <ul className="appearanceTable">
-                {details.appearances.map((appearance) => {
+                {details.appearances?.map((appearance) => {
                     return <li className="appearanceRow" key={appearance.appearance_id}>{appearance.title}</li>
                 })}
                 </ul>
