@@ -82,12 +82,12 @@ $gradia-backgroundImg: url("../img/orysca-map.png");
 }
 
 /*******************
- * 2. BSBS
+ * 3. Snaplands
  *******************/
  
  //colors
- $snaplands-header: #181775; //#69140E;
- $snaplands-gridPortrait: hsl(241, 47%, 37%); //#00a44a;
+ $snaplands-header: #436409; //#69140E;
+ $snaplands-gridPortrait: hsl(82, 91%, 29%); //#00a44a;
  $snaplands-infoBorder: rgb(71,46,0);
  
  //imgs
@@ -122,6 +122,55 @@ $gradia-backgroundImg: url("../img/orysca-map.png");
     }
     .snaplands #info {
         background: $snaplands-headerImg, $snaplands-header;
+        background-size: cover;
+    }
+    .gradia #info {
+        background: $gradia-headerImg, $gradia-header;
+        background-size: cover;
+    }
+}
+
+/*******************
+ * 4. Scalesagas
+ *******************/
+ 
+ //colors
+ $scalesagas-header: #5C085C; //#69140E;
+ $scalesagas-gridPortrait: hsl(300, 83%, 30%); //#00a44a;
+ $scalesagas-infoBorder: rgb(71,46,0);
+ 
+ //imgs
+ $scalesagas-headerImg: url(../img/3859499_darkpurple.jpg); //url(../img/3859499.jpg);
+ $scalesagas-backgroundImg: url('../img/test_4.png');
+
+ .scalesagas {
+    header, #recapToggle, button, #recapNav{
+        background: $scalesagas-headerImg, $scalesagas-header;
+        background-size: cover;
+    }
+    .portrait {
+        border: 3px ridge $scalesagas-gridPortrait;
+    }
+ }
+
+ @media (min-width:950px){
+    .App.scalesagas {
+            background-image: $scalesagas-backgroundImg;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        
+    }
+    .App.gradia {
+        
+            background-image: $gradia-backgroundImg;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        
+    }
+    .scalesagas #info {
+        background: $scalesagas-headerImg, $scalesagas-header;
         background-size: cover;
     }
     .gradia #info {

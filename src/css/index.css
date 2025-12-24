@@ -50,14 +50,14 @@
   }
 }
 /*******************
- * 2. BSBS
+ * 3. Snaplands
  *******************/
 .snaplands header, .snaplands #recapToggle, .snaplands button, .snaplands #recapNav {
-  background: url(../img/3859499_darkgreen.jpg), #181775;
+  background: url(../img/3859499_darkgreen.jpg), #436409;
   background-size: cover;
 }
 .snaplands .portrait {
-  border: 3px ridge #33328b;
+  border: 3px ridge #5c8d07;
 }
 
 @media (min-width: 950px) {
@@ -76,7 +76,36 @@
   }
 
   .snaplands #info {
-    background: url(../img/3859499_darkgreen.jpg), #181775;
+    background: url(../img/3859499_darkgreen.jpg), #436409;
+    background-size: cover;
+  }
+
+  .gradia #info {
+    background: url(../img/3859499_citrus.jpg), #ca4a00;
+    background-size: cover;
+  }
+}
+/*******************
+ * 4. Scalesagas
+ *******************/
+.scalesagas header, .scalesagas #recapToggle, .scalesagas button, .scalesagas #recapNav {
+  background: url(../img/3859499_darkpurple.jpg), #5C085C;
+  background-size: cover;
+}
+.scalesagas .portrait {
+  border: 3px ridge #8c0d8c;
+}
+
+@media (min-width: 950px) {
+  .App.scalesagas, .App.gradia {
+    background-image: url("../img/test_4.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .scalesagas #info {
+    background: url(../img/3859499_darkpurple.jpg), #5C085C;
     background-size: cover;
   }
 

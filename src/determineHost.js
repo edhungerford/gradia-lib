@@ -10,7 +10,7 @@ host = window.location.host;
     } else if (this.host == "gradia.edsite.black"){
         return "Tails of Gradia";
     } 
-    return "Snaplands";
+    return "Scalesagas";
   }
 
    determineFetch (){
@@ -21,7 +21,7 @@ host = window.location.host;
     } else if (this.host == "gradia.edsite.black"){
         return "gradia";
     }
-    return "snaplands";
+    return "scalesagas";
   }
 
 }
