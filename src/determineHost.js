@@ -9,8 +9,10 @@ host = window.location.host;
         return "South of Snaplands";
     } else if (this.host == "gradia.edsite.black"){
         return "Tails of Gradia";
-    } 
-    return "Scalesagas";
+    } else if (this.host == "scalesagas.edsite.black"){
+      return "Scalesagas";
+    }
+    return "Snaplands";
   }
 
    determineFetch (){
@@ -20,8 +22,10 @@ host = window.location.host;
         return "snaplands";
     } else if (this.host == "gradia.edsite.black"){
         return "gradia";
+    } else if (this.host == "scalesagas.edsite.black"){
+      return "Scalesagas";
     }
-    return "scalesagas";
+    return "snaplands";
   }
 
 }

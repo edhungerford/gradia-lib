@@ -97,8 +97,15 @@
 }
 
 @media (min-width: 950px) {
-  .App.scalesagas, .App.gradia {
+  .App.scalesagas {
     background-image: url("../img/test_4.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .App.gradia {
+    background-image: url("../img/orysca-map.png");
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
