@@ -1,10 +1,144 @@
-.App {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+@charset "UTF-8";
+/*******************
+ * 1. UNIVERSALS
+ *******************/
+/*******************
+ * 2. GRADIA
+ *******************/
+.gradia header, .gradia #recapToggle, .gradia button, .gradia #recapNav {
+  background: url(../img/3859499_citrus.jpg), #ca4a00;
+  background-size: cover;
+}
+.gradia .portrait {
+  border: 3px ridge #ff6e6e;
+}
+
+/*******************
+ * 2. BSBS
+ *******************/
+.bsbs header, .bsbs #recapToggle, .bsbs button, .bsbs #recapNav {
+  background: url(../img/3859499_darkblue.jpg), #181775;
+  background-size: cover;
+}
+.bsbs .portrait {
+  border: 3px ridge #33328b;
+}
+
+@media (min-width: 950px) {
+  .App.bsbs {
+    background-image: url("../img/1974.387_Hampstead_Stormy_Sky.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .App.gradia {
+    background-image: url("../img/orysca-map.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .bsbs #info {
+    background: url(../img/3859499_darkblue.jpg), #181775;
+    background-size: cover;
+  }
+
+  .gradia #info {
+    background: url(../img/3859499_citrus.jpg), #ca4a00;
+    background-size: cover;
+  }
+}
+/*******************
+ * 3. Snaplands
+ *******************/
+.snaplands header, .snaplands #recapToggle, .snaplands button, .snaplands #recapNav {
+  background: url(../img/3859499_darkgreen.jpg), #436409;
+  background-size: cover;
+}
+.snaplands .portrait {
+  border: 3px ridge #5c8d07;
+}
+
+@media (min-width: 950px) {
+  .App.snaplands {
+    background-image: url("../img/Paul_Cézanne_-_Forêt_(1902-1904).jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .App.gradia {
+    background-image: url("../img/orysca-map.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .snaplands #info {
+    background: url(../img/3859499_darkgreen.jpg), #436409;
+    background-size: cover;
+  }
+
+  .gradia #info {
+    background: url(../img/3859499_citrus.jpg), #ca4a00;
+    background-size: cover;
+  }
+}
+/*******************
+ * 4. Scalesagas
+ *******************/
+.scalesagas header, .scalesagas #recapToggle, .scalesagas button, .scalesagas #recapNav {
+  background: url(../img/3859499_darkpurple.jpg), #5C085C;
+  background-size: cover;
+}
+.scalesagas .portrait {
+  border: 3px ridge #8c0d8c;
+}
+
+@media (min-width: 950px) {
+  .App.scalesagas {
+    background-image: url("../img/test_4.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .App.gradia {
+    background-image: url("../img/orysca-map.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .scalesagas #info {
+    background: url(../img/3859499_darkpurple.jpg), #5C085C;
+    background-size: cover;
+  }
+
+  .gradia #info {
+    background: url(../img/3859499_citrus.jpg), #ca4a00;
+    background-size: cover;
+  }
+}
+* {
+  box-sizing: border-box;
+  overscroll-behavior: contain;
 }
 
 body {
   margin: 0;
+}
+
+.App {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.App .container {
+  margin: 0;
   background-color: #fdfdfd;
+  z-index: 0;
 }
 
 h1, h2, h3 {
@@ -18,14 +152,14 @@ h4 {
 
 header {
   text-align: center;
-  background: url(../img/3859499_citrus.jpg), #ca4a00;
   background-size: cover;
   color: whitesmoke;
   border: 5px double white;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .gridContainer {
-  max-height: 70vw;
   overflow-y: scroll;
   padding-bottom: 15px;
 }
@@ -41,7 +175,6 @@ header {
 }
 
 .portrait {
-  border: 3px ridge #ff6e6e;
   box-shadow: 0px 5px 10px;
   overflow: hidden;
   position: relative;
@@ -87,6 +220,7 @@ main {
 
 #recapNav {
   display: none;
+  overflow-y: scroll;
 }
 
 #recapToggle {
@@ -95,7 +229,6 @@ main {
   top: 0px;
   right: 0px;
   width: 40%;
-  background: url(../img/3859499_citrus.jpg), #ca4a00;
   background-size: cover;
   color: white;
   padding: 0 10px 0 10px;
@@ -113,6 +246,7 @@ main {
   border: none;
   z-index: 4;
   background-color: none;
+  scroll-behavior: smooth;
 }
 
 .recap-enter {
@@ -163,7 +297,6 @@ button {
   border: 0;
   height: auto;
   width: 50%;
-  background: url(../img/3859499_citrus.jpg), #ca4a00;
   background-size: cover;
   color: white;
   display: block;
@@ -230,25 +363,8 @@ footer a {
   float: left;
 }
 
-.appearanceRow:nth-child(2n) {
-  background-color: #fdfdfd;
-}
-
-.appearanceRow:nth-child(2n-1) {
-  background-color: #e5c4b1;
-}
-
-.appearanceTable {
-  padding-left: 0;
-  margin-top: 5px;
-}
-
-.appearanceRow {
-  color: black;
-  font-weight: normal;
-  padding: 5px;
-  list-style-type: none;
-  margin-left: 0;
+#closeInfo ::after {
+  content: "CLOSE";
 }
 
 /*# sourceMappingURL=index.css.map */

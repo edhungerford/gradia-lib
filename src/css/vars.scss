@@ -1,12 +1,180 @@
-// colors
+/*******************
+ * 1. UNIVERSALS
+ *******************/
+
+//colors
 $body: #fdfdfd; //#cccccc;
-$header: #ca4a00; //#69140E;
-$gridPortrait: #ff6e6e; //#00a44a;
-$infoBorder: rgb(71,46,0);
 $tintColor: rgb(0,0,0);
 
 //borders
 $componentBorder: 5px double white;
 
+/*******************
+ * 2. GRADIA
+ *******************/
+ 
+ //colors
+$gradia-header: #ca4a00; //#69140E;
+$gradia-gridPortrait: #ff6e6e; //#00a44a;
+$gradia-infoBorder: rgb(71,46,0);
+
 //imgs
-$headerImg: url(../img/3859499_citrus.jpg); //url(../img/3859499.jpg);
+$gradia-headerImg: url(../img/3859499_citrus.jpg); //url(../img/3859499.jpg);
+$gradia-backgroundImg: url("../img/orysca-map.png");
+
+.gradia {
+    header, #recapToggle, button, #recapNav{
+        background: $gradia-headerImg, $gradia-header;
+        background-size: cover;
+    }
+    .portrait {
+        border: 3px ridge $gradia-gridPortrait;
+    }
+ }
+
+/*******************
+ * 2. BSBS
+ *******************/
+ 
+ //colors
+ $bsbs-header: #181775; //#69140E;
+ $bsbs-gridPortrait: hsl(241, 47%, 37%); //#00a44a;
+ $bsbs-infoBorder: rgb(71,46,0);
+ 
+ //imgs
+ $bsbs-headerImg: url(../img/3859499_darkblue.jpg); //url(../img/3859499.jpg);
+ $bsbs-backgroundImg: url("../img/1974.387_Hampstead_Stormy_Sky.jpg");
+
+ .bsbs {
+    header, #recapToggle, button, #recapNav{
+        background: $bsbs-headerImg, $bsbs-header;
+        background-size: cover;
+    }
+    .portrait {
+        border: 3px ridge $bsbs-gridPortrait;
+    }
+ }
+
+ @media (min-width:950px){
+    .App.bsbs {
+            background-image: $bsbs-backgroundImg;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        
+    }
+    .App.gradia {
+        
+            background-image: $gradia-backgroundImg;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        
+    }
+    .bsbs #info {
+        background: $bsbs-headerImg, $bsbs-header;
+        background-size: cover;
+    }
+    .gradia #info {
+        background: $gradia-headerImg, $gradia-header;
+        background-size: cover;
+    }
+}
+
+/*******************
+ * 3. Snaplands
+ *******************/
+ 
+ //colors
+ $snaplands-header: #436409; //#69140E;
+ $snaplands-gridPortrait: hsl(82, 91%, 29%); //#00a44a;
+ $snaplands-infoBorder: rgb(71,46,0);
+ 
+ //imgs
+ $snaplands-headerImg: url(../img/3859499_darkgreen.jpg); //url(../img/3859499.jpg);
+ $snaplands-backgroundImg: url('../img/Paul_Cézanne_-_Forêt_\(1902-1904\).jpg');
+
+ .snaplands {
+    header, #recapToggle, button, #recapNav{
+        background: $snaplands-headerImg, $snaplands-header;
+        background-size: cover;
+    }
+    .portrait {
+        border: 3px ridge $snaplands-gridPortrait;
+    }
+ }
+
+ @media (min-width:950px){
+    .App.snaplands {
+            background-image: $snaplands-backgroundImg;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        
+    }
+    .App.gradia {
+        
+            background-image: $gradia-backgroundImg;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        
+    }
+    .snaplands #info {
+        background: $snaplands-headerImg, $snaplands-header;
+        background-size: cover;
+    }
+    .gradia #info {
+        background: $gradia-headerImg, $gradia-header;
+        background-size: cover;
+    }
+}
+
+/*******************
+ * 4. Scalesagas
+ *******************/
+ 
+ //colors
+ $scalesagas-header: #5C085C; //#69140E;
+ $scalesagas-gridPortrait: hsl(300, 83%, 30%); //#00a44a;
+ $scalesagas-infoBorder: rgb(71,46,0);
+ 
+ //imgs
+ $scalesagas-headerImg: url(../img/3859499_darkpurple.jpg); //url(../img/3859499.jpg);
+ $scalesagas-backgroundImg: url('../img/test_4.png');
+
+ .scalesagas {
+    header, #recapToggle, button, #recapNav{
+        background: $scalesagas-headerImg, $scalesagas-header;
+        background-size: cover;
+    }
+    .portrait {
+        border: 3px ridge $scalesagas-gridPortrait;
+    }
+ }
+
+ @media (min-width:950px){
+    .App.scalesagas {
+            background-image: $scalesagas-backgroundImg;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        
+    }
+    .App.gradia {
+        
+            background-image: $gradia-backgroundImg;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        
+    }
+    .scalesagas #info {
+        background: $scalesagas-headerImg, $scalesagas-header;
+        background-size: cover;
+    }
+    .gradia #info {
+        background: $gradia-headerImg, $gradia-header;
+        background-size: cover;
+    }
+}

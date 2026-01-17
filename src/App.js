@@ -5,6 +5,7 @@ import Info from './Info';
 import Recap from './Recap.jsx';
 import { CSSTransition } from "react-transition-group";
 import RecapNav from './RecapNav';
+import determineHost from './determineHost';
 
 function App() {
 
@@ -15,23 +16,29 @@ function App() {
   const [charData, setCharData] = useState([]);
   const [recapData, setRecapData] = useState(false);
 
+  const host = new determineHost();
+
   useEffect(() => { 
-    fetch("https://gradia.edsite.black/api/characters")
+    fetch(`https://gradia.edsite.black/api/${host.determineFetch()}/characters`)
       .then((res) => res.json())
       .then((json) => {
         setCharData(json);
       })
 
-    fetch("https://gradia.edsite.black/api/story")
+    fetch(`https://gradia.edsite.black/api/${host.determineFetch()}/story`)
       .then((res) => res.json())
       .then((json) => {
         setRecapData(json);
       })
+    
+      document.title = host.determineTitle();
+
     }, []);
 
   return (
-    <div className="App">
-        <Header />
+    <div className={"App " + host.determineFetch()}>
+      <div className="container">
+        <Header title={host.determineTitle()} />
 
           <div className="toggleContainer">
               <aside id="recapToggle" onClick={() => setRecapDisplay(true)}>
@@ -69,6 +76,7 @@ function App() {
         href="http://edsite.black">Return to EDSITE</a>-->
         {/* <br />"Superstition Mountain, Apache Trail, Arizona (no.1), 1929" by George Elbert Burr */}
         </footer>
+    </div>
     </div>
   );
 }

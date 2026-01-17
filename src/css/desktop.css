@@ -1,3 +1,126 @@
+@charset "UTF-8";
+/*******************
+ * 1. UNIVERSALS
+ *******************/
+/*******************
+ * 2. GRADIA
+ *******************/
+.gradia header, .gradia #recapToggle, .gradia button, .gradia #recapNav {
+  background: url(../img/3859499_citrus.jpg), #ca4a00;
+  background-size: cover;
+}
+.gradia .portrait {
+  border: 3px ridge #ff6e6e;
+}
+
+/*******************
+ * 2. BSBS
+ *******************/
+.bsbs header, .bsbs #recapToggle, .bsbs button, .bsbs #recapNav {
+  background: url(../img/3859499_darkblue.jpg), #181775;
+  background-size: cover;
+}
+.bsbs .portrait {
+  border: 3px ridge #33328b;
+}
+
+@media (min-width: 950px) {
+  .App.bsbs {
+    background-image: url("../img/1974.387_Hampstead_Stormy_Sky.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .App.gradia {
+    background-image: url("../img/orysca-map.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .bsbs #info {
+    background: url(../img/3859499_darkblue.jpg), #181775;
+    background-size: cover;
+  }
+
+  .gradia #info {
+    background: url(../img/3859499_citrus.jpg), #ca4a00;
+    background-size: cover;
+  }
+}
+/*******************
+ * 3. Snaplands
+ *******************/
+.snaplands header, .snaplands #recapToggle, .snaplands button, .snaplands #recapNav {
+  background: url(../img/3859499_darkgreen.jpg), #436409;
+  background-size: cover;
+}
+.snaplands .portrait {
+  border: 3px ridge #5c8d07;
+}
+
+@media (min-width: 950px) {
+  .App.snaplands {
+    background-image: url("../img/Paul_Cézanne_-_Forêt_(1902-1904).jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .App.gradia {
+    background-image: url("../img/orysca-map.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .snaplands #info {
+    background: url(../img/3859499_darkgreen.jpg), #436409;
+    background-size: cover;
+  }
+
+  .gradia #info {
+    background: url(../img/3859499_citrus.jpg), #ca4a00;
+    background-size: cover;
+  }
+}
+/*******************
+ * 4. Scalesagas
+ *******************/
+.scalesagas header, .scalesagas #recapToggle, .scalesagas button, .scalesagas #recapNav {
+  background: url(../img/3859499_darkpurple.jpg), #5C085C;
+  background-size: cover;
+}
+.scalesagas .portrait {
+  border: 3px ridge #8c0d8c;
+}
+
+@media (min-width: 950px) {
+  .App.scalesagas {
+    background-image: url("../img/test_4.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .App.gradia {
+    background-image: url("../img/orysca-map.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .scalesagas #info {
+    background: url(../img/3859499_darkpurple.jpg), #5C085C;
+    background-size: cover;
+  }
+
+  .gradia #info {
+    background: url(../img/3859499_citrus.jpg), #ca4a00;
+    background-size: cover;
+  }
+}
 @media screen and (max-width: 1105px) {
   .grid {
     grid-template-columns: repeat(3, 125px);
@@ -16,14 +139,7 @@
   }
 }
 @media screen and (min-width: 950px) {
-  html {
-    background-image: url("../img/orysca-map.png");
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-  }
-
-  body {
+  .App .container {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -48,12 +164,12 @@
     box-shadow: 0px 5px 8px black;
   }
 
-  header {
-    margin-top: 10px;
+  .container {
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   footer {
-    margin-bottom: 10px;
     border: none;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
@@ -71,13 +187,15 @@
     height: max-content;
     color: white;
     border: 5px double white;
-    background: url(../img/3859499_citrus.jpg), #ca4a00;
     background-size: cover;
   }
 
   #info {
     top: 10px;
     left: 10px;
+    max-height: 90%;
+    height: unset;
+    overflow-y: scroll;
   }
 
   #recapNav {
@@ -85,6 +203,8 @@
     padding: 10px;
     top: 10px;
     right: 10px;
+    bottom: 10px;
+    height: auto;
   }
   #recapNav ul {
     list-style: none;
@@ -95,8 +215,8 @@
   }
 
   .infoPortrait {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
   }
 
   .gridContainer {
@@ -133,7 +253,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
     width: 50%;
-    height: auto;
+    height: min-content;
     top: 10px;
     bottom: 10px;
     left: auto;
@@ -141,6 +261,19 @@
     background-color: none;
     border: none;
     padding: 0;
+  }
+
+  #closeInfo {
+    position: fixed;
+    width: initial;
+    top: 0;
+    left: calc(20% + 15px);
+  }
+  #closeInfo ::after {
+    content: "x";
+  }
+  #closeInfo h2 {
+    margin: 0;
   }
 }
 

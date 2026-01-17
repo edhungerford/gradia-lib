@@ -1,13 +1,24 @@
 @use "sass:color";
 @import "vars";
 
-.App {
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+* {
+  box-sizing:border-box;
+  overscroll-behavior: contain;
 }
 
 body {
   margin: 0;
+}
+
+.App {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.App .container {
+  margin: 0;
   background-color: $body;
+  z-index: 0;
 }
 
 h1, h2, h3 {
@@ -21,15 +32,18 @@ h4 {
 
 header {
   text-align: center;
-  background: $headerImg, $header;
   background-size:cover;
   color:whitesmoke;
   border:$componentBorder;
+  padding: {
+    left: 10px;
+    right: 10px;
+  }
   
 }
 
 .gridContainer {
-  max-height:70vw;
+  // max-height:70vw;
   overflow-y:scroll;
   padding-bottom:15px;
 }
@@ -46,7 +60,6 @@ header {
 }
 
 .portrait {
-  border:3px ridge $gridPortrait;
   box-shadow: 0px 5px 10px;
   overflow: hidden;
   position:relative;
@@ -92,6 +105,7 @@ main {
 
 #recapNav {
   display:none;
+  overflow-y: scroll;
 }
 
 #recapToggle {
@@ -100,7 +114,6 @@ main {
   top:0px;
   right:0px;
   width:40%;
-  background: $headerImg, $header;
   background-size:cover;
   color:white;
   padding: 0 10px 0 10px;
@@ -118,6 +131,7 @@ main {
   border: none;
   z-index: 4;
   background-color: none;
+  scroll-behavior:smooth;
 }
 
 .recap-enter {
@@ -176,7 +190,6 @@ button{
   border:0;
   height:auto;
   width:50%;
-  background: $headerImg, $header;
   background-size:cover;
   color:white;
   display:block;
@@ -243,22 +256,29 @@ footer a {
   float:left;
 }
 
-.appearanceRow:nth-child(2n) {
-  background-color: $body;
+#closeInfo {
+  ::after {
+    content: "CLOSE";
 }
-.appearanceRow:nth-child(2n-1) {
-  background-color: lighten(desaturate($color: $header, $amount: 50%), $amount: 40%);
-}
-
-.appearanceTable {
-	padding-left: 0;
-  margin-top: 5px;
 }
 
-.appearanceRow {
-	color: black;
-  font-weight:normal;
-	padding: 5px;
-	list-style-type: none;
-	margin-left: 0;
-}
+
+// .appearanceRow:nth-child(2n) {
+//   background-color: $body;
+// }
+// .appearanceRow:nth-child(2n-1) {
+//   background-color: lighten(desaturate($color: $header, $amount: 50%), $amount: 40%);
+// }
+
+// .appearanceTable {
+// 	padding-left: 0;
+//   margin-top: 5px;
+// }
+
+// .appearanceRow {
+// 	color: black;
+//   font-weight:normal;
+// 	padding: 5px;
+// 	list-style-type: none;
+// 	margin-left: 0;
+// }
