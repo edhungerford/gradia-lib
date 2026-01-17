@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import Portrait from "./Portrait";
-import lib from "./lib.js";
 
 class Grid extends Component{
 
@@ -10,7 +9,6 @@ class Grid extends Component{
             selected: null,
             details: this.props.details,
             setDetails: this.props.setDetails,
-            library: lib().Library
         }
     }
 
