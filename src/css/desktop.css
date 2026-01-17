@@ -253,7 +253,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
     width: 50%;
-    height: auto;
+    height: min-content;
     top: 10px;
     bottom: 10px;
     left: auto;
