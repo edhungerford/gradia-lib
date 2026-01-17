@@ -140,7 +140,8 @@
         overflow-y: scroll;
         overflow-x: hidden;
         width:50%;
-        height:min-content;
+        max-height:calc(100vh - 20px);
+        height: min-content;
         top:10px;
         bottom:10px;
         left:auto;
