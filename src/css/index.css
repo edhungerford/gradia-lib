@@ -123,6 +123,7 @@
 }
 * {
   box-sizing: border-box;
+  overscroll-behavior: contain;
 }
 
 body {
@@ -159,7 +160,6 @@ header {
 }
 
 .gridContainer {
-  max-height: 70vw;
   overflow-y: scroll;
   padding-bottom: 15px;
 }
@@ -220,6 +220,7 @@ main {
 
 #recapNav {
   display: none;
+  overflow-y: scroll;
 }
 
 #recapToggle {
@@ -245,6 +246,7 @@ main {
   border: none;
   z-index: 4;
   background-color: none;
+  scroll-behavior: smooth;
 }
 
 .recap-enter {

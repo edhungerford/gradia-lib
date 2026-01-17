@@ -203,6 +203,8 @@
     padding: 10px;
     top: 10px;
     right: 10px;
+    bottom: 10px;
+    height: auto;
   }
   #recapNav ul {
     list-style: none;
