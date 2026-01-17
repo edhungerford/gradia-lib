@@ -52,6 +52,16 @@
 /*******************
  * 3. Snaplands
  *******************/
+@font-face {
+  font-family: "Flavors";
+  src: url("../font/Flavors-Regular.ttf");
+}
+.snaplands h1 {
+  font-family: "Flavors";
+}
+.snaplands h2, .snaplands h3 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
 .snaplands header, .snaplands #recapToggle, .snaplands button, .snaplands #recapNav {
   background: url(../img/3859499_darkgreen.jpg), #436409;
   background-size: cover;
@@ -139,6 +149,24 @@ body {
   margin: 0;
   background-color: #fdfdfd;
   z-index: 0;
+  height: max-content;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
 }
 
 h1, h2, h3 {
@@ -207,6 +235,32 @@ main {
   background-color: #fdfdfd;
 }
 
+#infoOverlay {
+  position: fixed;
+  z-index: 6;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+#recapOverlay {
+  position: fixed;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+#infoWrapper {
+  position: fixed;
+  background-color: white;
+  width: 100%;
+}
+
 #info {
   height: 45%;
   padding: 10px;
@@ -220,6 +274,7 @@ main {
 
 #recapNav {
   display: none;
+  z-index: 5;
   overflow-y: scroll;
 }
 
@@ -269,12 +324,24 @@ main {
   transition: opacity 400ms;
 }
 
+.recapWrapper-enter, .recapWrapper-exit-active {
+  opacity: 0;
+}
+
+.recapWrapper-enter-active, .recapWrapper-exit {
+  opacity: 1;
+}
+
 #closeRecap {
   display: inline;
 }
 
 aside * {
   margin: 0;
+}
+
+.asideText {
+  text-align: center;
 }
 
 .infoPortrait {

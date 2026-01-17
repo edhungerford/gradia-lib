@@ -12,7 +12,7 @@ host = window.location.host;
     } else if (this.host == "scalesagas.edsite.black"){
       return "Scalesagas";
     }
-    return "Scalesagas";
+    return "Gradia";
   }
 
    determineFetch (){
@@ -25,7 +25,7 @@ host = window.location.host;
     } else if (this.host == "scalesagas.edsite.black"){
       return "scalesagas";
     }
-    return "scalesagas";
+    return "gradia";
   }
 
 }

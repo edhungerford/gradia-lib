@@ -8,7 +8,7 @@ function Portrait(props){
 
     const changeName = () => {
         props.setDetails(properties);
-        document.querySelector('#infoWrapper').style = "display:auto;"
+        document.querySelector('#infoOverlay').style = "display:auto;"
     }    
 
     useEffect(() =>{

@@ -93,8 +93,20 @@ $gradia-backgroundImg: url("../img/orysca-map.png");
  //imgs
  $snaplands-headerImg: url(../img/3859499_darkgreen.jpg); //url(../img/3859499.jpg);
  $snaplands-backgroundImg: url('../img/Paul_Cézanne_-_Forêt_\(1902-1904\).jpg');
+ 
+ //fonts
+ @font-face {
+    font-family: "Flavors";
+    src: url('../font/Flavors-Regular.ttf');
+ }
 
  .snaplands {
+    h1 {
+        font-family: "Flavors";
+    }
+    h2, h3 {
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    }
     header, #recapToggle, button, #recapNav{
         background: $snaplands-headerImg, $snaplands-header;
         background-size: cover;

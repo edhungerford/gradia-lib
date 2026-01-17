@@ -45,6 +45,26 @@ function App() {
                 <h3>Recap</h3>
               </aside>
           </div>
+
+          <CSSTransition
+          in={recapDisplay}
+          timeout={200}
+          classNames="recapOverlay"
+          unmountOnExit
+          onEnter={() => setRecapDisplay(true)}
+          onExit={() => setRecapDisplay(false)}>
+            <div id="recapOverlay" />
+          </CSSTransition>
+
+          <CSSTransition
+          in={recapDisplay}
+          timeout={200}
+          classNames="recap"
+          unmountOnExit
+          onEnter={() => setRecapDisplay(true)}
+          onExit={() => setRecapDisplay(false)}>
+            <RecapNav headerIndex={headerIndex} setHeaderIndex={setHeaderIndex} recapData={recapData} />
+          </CSSTransition>
         
         <CSSTransition 
           in={recapDisplay} 
@@ -55,16 +75,6 @@ function App() {
           onExit={() => (setRecapDisplay(false), setHeaderIndex(0))}>
             <Recap headerIndex={headerIndex} setHeaderIndex={setHeaderIndex} setRecapDisplay={setRecapDisplay} recapData={recapData}/>
         </CSSTransition>
-
-        <CSSTransition
-          in={recapDisplay}
-          timeout={200}
-          classNames="recap"
-          unmountOnExit
-          onEnter={() => setRecapDisplay(true)}
-          onExit={() => setRecapDisplay(false)}>
-            <RecapNav headerIndex={headerIndex} setHeaderIndex={setHeaderIndex} recapData={recapData} />
-          </CSSTransition>
 
         <Info details={details}/>
         <main>

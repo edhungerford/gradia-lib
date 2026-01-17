@@ -21,7 +21,7 @@ class Grid extends Component{
             {Array.from(new Set(this.props.charData.map(character => character.affiliation))).map((affiliation) => {
                 return(
                     <div key={affiliation}>                    
-                        <h1 key={affiliation + "Header"}>{affiliation}</h1>
+                        <h2 key={affiliation + "Header"}>{affiliation}</h2>
                         <div key={affiliation} className="grid">
                             {this.props.charData.map(character => {
                                 if(affiliation === character.affiliation){

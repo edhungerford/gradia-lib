@@ -52,6 +52,16 @@
 /*******************
  * 3. Snaplands
  *******************/
+@font-face {
+  font-family: "Flavors";
+  src: url("../font/Flavors-Regular.ttf");
+}
+.snaplands h1 {
+  font-family: "Flavors";
+}
+.snaplands h2, .snaplands h3 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
 .snaplands header, .snaplands #recapToggle, .snaplands button, .snaplands #recapNav {
   background: url(../img/3859499_darkgreen.jpg), #436409;
   background-size: cover;
@@ -145,6 +155,10 @@
     margin-right: auto;
     background-color: transparent;
     position: relative;
+  }
+
+  h1 {
+    text-shadow: 3px 3px 3px black;
   }
 
   main h1 {
