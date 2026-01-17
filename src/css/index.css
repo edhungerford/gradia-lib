@@ -414,6 +414,7 @@ footer a {
   border-right: 5px double white;
   border-top: none;
   border-bottom: none;
+  padding: 10px;
 }
 
 .sandwichEnd {
