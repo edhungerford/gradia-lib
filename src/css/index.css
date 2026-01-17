@@ -337,6 +337,11 @@ footer a {
   scroll-margin-top: 120px;
 }
 
+#recapWrapper {
+  background-color: white;
+  text-align: center;
+}
+
 .sandwich {
   border-left: 5px double white;
   border-right: 5px double white;
@@ -350,7 +355,10 @@ footer a {
   border-top: none;
   border-bottom: 5px double white;
   position: sticky;
-  bottom: 0;
+  bottom: -10px;
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, white 15%);
+  background-color: unset;
+  padding: 10px;
 }
 
 #next {
