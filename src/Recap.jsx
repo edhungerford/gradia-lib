@@ -11,7 +11,7 @@ class Recap extends Component{
     }
 
     formatStory(session){
-        let story = session.story;
+        let story = session.story.replaceAll("\n","line-break");
         if(session.features.length > 0){
             session.features.forEach(char => {
                 let pos = story.search(char.name);
@@ -23,7 +23,6 @@ class Recap extends Component{
                 }
             })
         }
-       
         return this.packageRecap(story);
     }
 
@@ -32,7 +31,13 @@ class Recap extends Component{
     }
 
     packageRecap(story){
+        story = story.split("line-break")
+        return(<>{story.map(s => {return(<p>{this.packageRecapParagraph(s)}</p>)})}</>)
+    }
+
+    packageRecapParagraph(story){
         story = story.split("link-break")
+        console.log(story);
         return(<>{story.map((s,i)=>{
             return i % 2 == 0? (<>{s}</>) : (this.createCharLink(s.split(",")[0],Number(s.split(",")[1])))
         })}</>)
