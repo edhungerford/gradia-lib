@@ -6,9 +6,7 @@ class Grid extends Component{
     constructor(props){
         super(props);
         this.state = {
-            selected: null,
-            details: this.props.details,
-            setDetails: this.props.setDetails,
+            selected: null
         }
     }
 
@@ -26,7 +24,7 @@ class Grid extends Component{
                             {this.props.charData.map(character => {
                                 if(affiliation === character.affiliation){
                                     return(
-                                        <Portrait key={character.name} properties={character} details={this.props.details} setDetails={this.props.setDetails}/>
+                                        <Portrait key={character.name} properties={character} details={this.props.details} setDetails={this.props.setDetails} charData={this.props.charData} changeName={this.props.changeName} />
                                     )
                                 }
                                 return("");

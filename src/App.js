@@ -35,26 +35,53 @@ function App() {
 
     }, []);
 
+    const decideToCloseOverlay = () => {
+        if(!recapDisplay && window.getComputedStyle(document.querySelector("#infoWrapper")).display === "none"){
+          document.querySelector("#recapOverlay").style.display = "none";
+        }
+    }  
+
+    const changeName = (properties, id=null) => {
+      if(id){
+        setDetails(charData.find(char => char.id === id))
+      } else {
+        setDetails(properties);
+      }
+      document.querySelector("#recapOverlay").style.display = "inline";
+      document.querySelector("#infoWrapper").style.display = "inline";
+      toggleZIndex(2);
+    }
+
+    const toggleZIndex = (which) => {
+      if(which === 1){
+        document.querySelector("#infoWrapper").style.zIndex = "3"
+        if(document.querySelector("#recap"))document.querySelector("#recap").style.zIndex = "4";
+      } else if(which === 2) {
+        document.querySelector("#infoWrapper").style.zIndex = "4"
+        if(document.querySelector("#recap"))document.querySelector("#recap").style.zIndex = "3";
+      }
+    }
+
+    const displayRecapAndCleanZIndex = () => {
+      toggleZIndex(1);
+    }
+
   return (
     <div className={"App " + host.determineFetch()}>
       <div className="container">
         <Header title={host.determineTitle()} />
 
           <div className="toggleContainer">
-              <aside id="recapToggle" onClick={() => setRecapDisplay(true)}>
+              <aside id="recapToggle" onClick={() => {
+                setRecapDisplay(true)
+                displayRecapAndCleanZIndex();
+                document.querySelector("#recapOverlay").style.display = "inline";
+                }}>
                 <h3>Recap</h3>
               </aside>
           </div>
 
-          <CSSTransition
-          in={recapDisplay}
-          timeout={200}
-          classNames="recapOverlay"
-          unmountOnExit
-          onEnter={() => setRecapDisplay(true)}
-          onExit={() => setRecapDisplay(false)}>
-            <div id="recapOverlay" />
-          </CSSTransition>
+          <div id="recapOverlay" />
 
           <CSSTransition
           in={recapDisplay}
@@ -62,7 +89,11 @@ function App() {
           classNames="recap"
           unmountOnExit
           onEnter={() => setRecapDisplay(true)}
-          onExit={() => setRecapDisplay(false)}>
+          onEntered={()=>displayRecapAndCleanZIndex()}
+          onExit={() => {
+            setRecapDisplay(false);
+            decideToCloseOverlay();
+          }}>
             <RecapNav headerIndex={headerIndex} setHeaderIndex={setHeaderIndex} recapData={recapData} />
           </CSSTransition>
         
@@ -71,14 +102,18 @@ function App() {
           timeout={200} 
           classNames="recap"
           unmountOnExit
-          onEnter={() => setRecapDisplay(true)}
-          onExit={() => (setRecapDisplay(false), setHeaderIndex(0))}>
-            <Recap headerIndex={headerIndex} setHeaderIndex={setHeaderIndex} setRecapDisplay={setRecapDisplay} recapData={recapData}/>
+          onEnter={() => displayRecapAndCleanZIndex()}
+          onExit={() => {
+            setRecapDisplay(false);
+            setHeaderIndex(0);
+            decideToCloseOverlay();
+          }}>
+          <Recap headerIndex={headerIndex} setHeaderIndex={setHeaderIndex} recapDisplay={recapDisplay} setRecapDisplay={setRecapDisplay} recapData={recapData} decideToCloseOverlay={decideToCloseOverlay} changeName={changeName} charData={charData} />
         </CSSTransition>
 
-        <Info details={details}/>
+        <Info details={details} recapDisplay={recapDisplay} setRecapDisplay={setRecapDisplay} displayRecapAndCleanZIndex={displayRecapAndCleanZIndex} decideToCloseOverlay={decideToCloseOverlay}/>
         <main>
-          <Grid details={details} setDetails={setDetails} charData={charData} />
+          <Grid details={details} setDetails={setDetails} charData={charData} changeName={changeName} />
         </main>    
         <footer>
         <a href="https://www.flaticon.com/free-icons/dragon" title="dragon icons">Dragon favicon created by Freepik - Flaticon</a> | <a href="http://edsite.black">Return to EDSITE</a>

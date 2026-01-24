@@ -204,6 +204,19 @@
     background-size: cover;
   }
 
+  #infoOverlay {
+    background-color: unset;
+    width: auto;
+  }
+
+  #infoWrapper::after {
+    position: unset;
+    background-color: transparent;
+    width: 0;
+    content: unset;
+    height: 0;
+  }
+
   #info {
     top: 10px;
     left: 10px;
@@ -212,7 +225,7 @@
     overflow-y: scroll;
   }
 
-  #recapNav {
+  #recapNav, #infoAppearances {
     display: unset;
     padding: 10px;
     top: 10px;
@@ -220,10 +233,10 @@
     bottom: 10px;
     height: auto;
   }
-  #recapNav ul {
+  #recapNav ul, #infoAppearances ul {
     list-style: none;
   }
-  #recapNav a {
+  #recapNav a, #infoAppearances a {
     text-decoration: none;
     color: white;
   }
@@ -276,6 +289,17 @@
     background-color: none;
     border: none;
     padding: 0;
+  }
+
+  #recapOverlay {
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: none;
   }
 
   #closeInfo {

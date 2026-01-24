@@ -4,12 +4,7 @@ import { CSSTransition } from "react-transition-group";
 function Portrait(props){
     
     const [properties] = useState(props.properties)
-    const [portraitDisplay, setPortraitDisplay] = useState(false);
-
-    const changeName = () => {
-        props.setDetails(properties);
-        document.querySelector('#infoOverlay').style = "display:auto;"
-    }    
+    const [portraitDisplay, setPortraitDisplay] = useState(false);   
 
     useEffect(() =>{
         setPortraitDisplay(true);
@@ -24,7 +19,9 @@ function Portrait(props){
             onEnter={() => setPortraitDisplay(true)}
             onExit={() => setPortraitDisplay(false)}>
             <div className="portrait">
-                <div className="tint" onClick={changeName} />
+                <div className="tint" onClick={() =>{
+                    props.changeName(properties);
+                    }} />
                 <div className="portrait-content">
                     <img src={properties.url} alt={properties.name}></img>
                 </div>

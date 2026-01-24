@@ -4,15 +4,18 @@ class Info extends Component{
 
     constructor(props){
         super(props);
-        this.state = {}
+        this.state = {
+            recapDisplay: this.props.recapDisplay,
+            setRecapDisplay: this.props.setRecapDisplay,
+            displayRecapAndCleanZIndex: this.props.displayRecapAndCleanZIndex
+        };
     }
 
     discoverSrc(details){
         if(details === "" || details === null || details === undefined ){
-            return(<></>);
+            return(<div id="infoWrapper"></div>);
         } else {
             return(
-                <div id="infoOverlay">
                     <div id="infoWrapper">
                         <aside id="info">
                             <div className="asideText">
@@ -26,16 +29,25 @@ class Info extends Component{
                                 <summary id="appearanceHeader">Appeared in:</summary>
                                 <ul className="appearanceTable">
                                     {details.appearances?.map((appearance) => {
-                                    return <li className="appearanceRow" key={appearance.appearance_id}>{appearance.title}</li>
+                                    return (
+                                        <a key={appearance.title} href={"#" + appearance.title}>
+                                            <li className="appearanceRow" key={appearance.appearance_id} onClick={() => {
+                                                this.state.setRecapDisplay(true);
+                                                this.state.displayRecapAndCleanZIndex()
+                                            }}>{appearance.title}</li>
+                                        </a>
+                                        )
                                     })}
                                 </ul>
                             </details>}
                         </aside>
-                        <button id="closeInfo" onClick={() => document.querySelector('#infoOverlay').style="display:none;"}>
+                        <button id="closeInfo" onClick={() => {
+                            document.querySelector("#infoWrapper").style.display = "none";
+                            this.props.decideToCloseOverlay();
+                            }}>
                             <h2></h2>
                         </button>
                     </div>
-                </div>
             );
         }
     }

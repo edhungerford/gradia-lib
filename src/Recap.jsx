@@ -4,9 +4,41 @@ class Recap extends Component{
     constructor(props){
         super(props);
         this.state = {
-            headerArray: props.recapData.map(session => session.title)
+            headerArray: props.recapData.map(session => session.title),
+            details: this.props.details,
+            setDetails: this.props.setDetails
         }
     }
+
+    formatStory(session){
+        let story = session.story;
+        if(session.features.length > 0){
+            session.features.forEach(char => {
+                let pos = story.search(char.name);
+                if(pos > -1){
+                    let storyRight = `${story.substring(pos + char.name.length)}`;
+                    let storyLeft = `${story.substring(0, pos)}`
+                    let anchor = `link-break${char.name},${char.character_id}link-break`
+                    story = storyLeft + anchor + storyRight;
+                }
+            })
+        }
+       
+        return this.packageRecap(story);
+    }
+
+    createCharLink(name,id){
+        return(<a href="#" onClick={() => (this.props.changeName(this.props.charData.find(char => char.id === id)),id)}>{name}</a>)
+    }
+
+    packageRecap(story){
+        story = story.split("link-break")
+        return(<>{story.map((s,i)=>{
+            return i % 2 == 0? (<>{s}</>) : (this.createCharLink(s.split(",")[0],Number(s.split(",")[1])))
+        })}</>)
+    }
+
+    
 
     render(){
         return(
@@ -22,9 +54,7 @@ class Recap extends Component{
                                         return(
                                             <div key={session.id} className="sandwich" style={{ "boxShadow": `none`}}>
                                                 <h2 key={session.id} id={session.title} className="recapHeader">{session.title}</h2>
-                                                {session.story.split("\n").map((story, index) => {
-                                                    return <p key={index}>{story}</p>
-                                                })}
+                                                {this.formatStory(session)}
                                                 <p key={session.id + "Stinger"} className="stinger"><i>{session.stinger}</i></p>
                                             </div>
                                         )
@@ -41,7 +71,9 @@ class Recap extends Component{
                             </button>
                         </a> */}
 
-                        <button id="closeRecap" onClick={() => this.props.setRecapDisplay(false)}>
+                        <button id="closeRecap" onClick={() => {
+                            this.props.setRecapDisplay(false);
+                        }}>
                             <h2>Close Recap</h2>
                         </button>
 

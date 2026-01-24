@@ -235,30 +235,30 @@ main {
   background-color: #fdfdfd;
 }
 
-#infoOverlay {
-  position: fixed;
-  z-index: 6;
-  background-color: rgba(0, 0, 0, 0.8);
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-}
-
 #recapOverlay {
-  position: fixed;
-  z-index: 3;
-  background-color: rgba(0, 0, 0, 0.8);
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
+  position: unset;
+  width: 0;
+  height: 0;
 }
 
 #infoWrapper {
   position: fixed;
   background-color: white;
+  top: 0;
   width: 100%;
+  z-index: 3;
+  max-height: 100%;
+  display: none;
+  overflow-y: scroll;
+}
+
+#infoWrapper::after {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  content: "";
+  height: 100%;
+  overflow: clip;
 }
 
 #info {
