@@ -39,7 +39,7 @@ class Recap extends Component{
         story = story.split("link-break")
         console.log(story);
         return(<>{story.map((s,i)=>{
-            return i % 2 == 0? (<>{s}</>) : (this.createCharLink(s.split(",")[0],Number(s.split(",")[1])))
+            return i % 2 === 0? (<>{s}</>) : (this.createCharLink(s.split(",")[0],Number(s.split(",")[1])))
         })}</>)
     }
 
