@@ -10,16 +10,41 @@ class Recap extends Component{
         }
     }
 
+    breakStory(pos, replacement, story, id){
+        let storyRight = `${story.substring(pos + replacement.length)}`;
+        let storyLeft = `${story.substring(0, pos)}`
+        let anchor = `link-break${replacement},${id}link-break`
+        story = storyLeft + anchor + storyRight;
+        return story;
+    }
+
     formatStory(session){
         let story = session.story.replaceAll("\n","line-break");
         if(session.features.length > 0){
             session.features.forEach(char => {
-                let pos = story.search(char.name);
-                if(pos > -1){
-                    let storyRight = `${story.substring(pos + char.name.length)}`;
-                    let storyLeft = `${story.substring(0, pos)}`
-                    let anchor = `link-break${char.name},${char.character_id}link-break`
-                    story = storyLeft + anchor + storyRight;
+                let pos1 = story.search(char.name);
+                    console.log(`Found ${char.name} at position ${pos1}`)
+                let pos2 = -1;
+                if(char.short_name){
+                    pos2 = story.search(char.short_name);
+                    console.log(`Found ${char.short_name} at position ${pos2}`)
+                }
+                if(pos1 > -1 || pos2 > -1){
+                    if(pos1 > -1 && pos2 > -1){
+                        if(pos1 < pos2){
+                            story = this.breakStory(pos1, char.name, story, char.id)
+                        } else if(pos2 < pos1){
+                            story = this.breakStory(pos2, char.short_name, story, char.id)
+                        } else {
+                             story = this.breakStory(pos1, char.name, story, char.id)
+                        }
+                    } else if(pos1 > -1){
+                        story = this.breakStory(pos1, char.name, story, char.id)
+                    } else if(pos2 > -1){
+                        story = this.breakStory(pos2, char.short_name, story, char.id)
+                    }
+                } else {
+                    console.log(`Couldn't find ${char.name}!`)
                 }
             })
         }
@@ -37,7 +62,6 @@ class Recap extends Component{
 
     packageRecapParagraph(story){
         story = story.split("link-break")
-        console.log(story);
         return(<>{story.map((s,i)=>{
             return i % 2 === 0? (<>{s}</>) : (this.createCharLink(s.split(",")[0],Number(s.split(",")[1])))
         })}</>)
