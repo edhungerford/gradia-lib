@@ -108,7 +108,7 @@
 
 @media (min-width: 950px) {
   .App.scalesagas {
-    background-image: url("../img/test_4.png");
+    background-image: url("../img/test_4_smallened.png");
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
