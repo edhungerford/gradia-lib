@@ -34,7 +34,7 @@ class Info extends Component{
                                             <li className="appearanceRow" key={appearance.appearance_id} onClick={() => {
                                                 this.state.setRecapDisplay(true);
                                                 this.state.displayRecapAndCleanZIndex()
-                                            }}>{appearance.title}</li>
+                                            }}>{appearance.title +  (appearance.died? " (DIED)" : "")}</li>
                                         </a>
                                         )
                                     })}
